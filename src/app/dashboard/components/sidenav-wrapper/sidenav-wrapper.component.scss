@@ -15,6 +15,25 @@ mat-sidenav-container {
       .chevron-button.rotated {
         transform: rotate(180deg);
       }
+      .menu-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+      }
+      .menu-button.rotated {
+        transform: rotate(180deg);
+      }
+      .submenu {
+        overflow-y: hidden;
+        transition: transform 300ms ease;
+        transform: scaleY(0);
+        transform-origin: top;
+        padding-left: 30px;
+        display: none;
+      }
+      .submenu.expanded {
+        transform: scaleY(1);
+      }
     }
   }
+
 }

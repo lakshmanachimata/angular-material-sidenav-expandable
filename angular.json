@@ -129,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "expandable-sidenav"
+  "defaultProject": "expandable-sidenav",
+  "cli": {
+    "analytics": false
+  }
 }

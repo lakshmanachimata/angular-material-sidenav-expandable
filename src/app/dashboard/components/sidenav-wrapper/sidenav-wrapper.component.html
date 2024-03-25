@@ -9,17 +9,25 @@
 
       <mat-list-item [routerLink]="'dashboard'">
         <mat-icon mat-list-icon>home</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+        <span *ngIf="isExpanded || isShowing" class="menu-item">Dashboard</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'info'">
-        <mat-icon mat-list-icon>important_devices</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Info</span>
+      <mat-list-item (click)="toggleSubMenu()"  (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">
+        <mat-icon mat-list-icon >important_devices</mat-icon>
+        <span *ngIf="isExpanded || isShowing" class="menu-item">Info</span>
+        <mat-icon class="menu-button" [ngClass]="{ 'rotated' : showSubmenu }" *ngIf="isExpanded || isShowing" >chevron_right</mat-icon>
       </mat-list-item>
-
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" [ngStyle]="{ 'display': showSubmenu ? 'block' : 'none' }" *ngIf="isExpanded || isShowing">
+        <mat-list-item [routerLink]="'info'">
+          <span class="menu-item">Info 1</span>
+        </mat-list-item >
+        <mat-list-item [routerLink]="'info'">
+          <span  class="menu-item">Info 2</span>
+        </mat-list-item>
+        </div>
       <mat-list-item [routerLink]="'user'">
         <mat-icon mat-list-icon>supervisor_account</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">User</span>
+        <span *ngIf="isExpanded || isShowing" class="menu-item">User</span>
       </mat-list-item>
 
     </mat-nav-list>
