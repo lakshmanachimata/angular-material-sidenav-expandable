@@ -8,23 +8,35 @@
       </mat-list-item>
 
       <mat-list-item [routerLink]="'dashboard'">
-        <mat-icon mat-list-icon>home</mat-icon>
+        <mat-icon mat-list-icon (click)="popMenu1 = !popMenu1">home</mat-icon>
         <span *ngIf="isExpanded || isShowing" class="menu-item">Dashboard</span>
       </mat-list-item>
+      <div class="popOverMenu dashMenu" *ngIf="popMenu1">
+        <span class="menuSub">Dashboard</span>
+      </div>
 
-      <mat-list-item (click)="toggleSubMenu()"  (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">
-        <mat-icon mat-list-icon >important_devices</mat-icon>
+      <mat-list-item (click)="toggleSubMenu()" (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">
+        <mat-icon mat-list-icon (click)="popMenu2 = !popMenu2">important_devices</mat-icon>
         <span *ngIf="isExpanded || isShowing" class="menu-item">Info</span>
-        <mat-icon class="menu-button" [ngClass]="{ 'rotated' : showSubmenu }" *ngIf="isExpanded || isShowing" >chevron_right</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{ 'rotated' : showSubmenu }"
+          *ngIf="isExpanded || isShowing">chevron_right</mat-icon>
       </mat-list-item>
-      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" [ngStyle]="{ 'display': showSubmenu ? 'block' : 'none' }" *ngIf="isExpanded || isShowing">
+
+      <div class="popOverMenu infoMenu" *ngIf="popMenu2">
+        <span class="menuSub">Info</span>
+        <span class="menuSub">Info 1</span>
+        <span class="menuSub">Info 2</span>
+      </div>
+
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}"
+        [ngStyle]="{ 'display': showSubmenu ? 'block' : 'none' }" *ngIf="isExpanded || isShowing">
         <mat-list-item [routerLink]="'info'">
           <span class="menu-item">Info 1</span>
-        </mat-list-item >
-        <mat-list-item [routerLink]="'info'">
-          <span  class="menu-item">Info 2</span>
         </mat-list-item>
-        </div>
+        <mat-list-item [routerLink]="'info'">
+          <span class="menu-item">Info 2</span>
+        </mat-list-item>
+      </div>
       <mat-list-item [routerLink]="'user'">
         <mat-icon mat-list-icon>supervisor_account</mat-icon>
         <span *ngIf="isExpanded || isShowing" class="menu-item">User</span>
@@ -42,3 +54,18 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
+
+
+<!-- <mat-list-item (click)="toggleSubMenu()" (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">
+  <mat-icon mat-list-icon [ngbPopover]="popContent1" placement="end"
+    triggers="mouseenter:mouseleave">important_devices</mat-icon>
+  <span *ngIf="isExpanded || isShowing" class="menu-item">Info</span>
+  <mat-icon class="menu-button" [ngClass]="{ 'rotated' : showSubmenu }"
+    *ngIf="isExpanded || isShowing">chevron_right</mat-icon>
+</mat-list-item>
+<ng-template #popContent1>
+  <div class="pophover p-0">
+    <p>ksjadhfkjdsh 78687687
+    </p>
+  </div>
+</ng-template> -->
