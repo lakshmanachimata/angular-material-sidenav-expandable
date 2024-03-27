@@ -18,20 +18,26 @@ export class SidenavWrapperComponent {
       this.showSubmenu = !this.showSubmenu;
       console.log('show SubMenu ' + this.showSubmenu);
     } else {
-      console.log('float SubMenu');
+      this.popMenu2 = !this.popMenu2
+      console.log('toggleSubMenu float ' + this.popMenu2);
     }
   }
   showFLMenu() {
     if (this.isExpanded || this.isShowing) {
     } else {
-      console.log('float showFLMenu');
+      setTimeout(() => {
+        this.popMenu2 = true
+        console.log('closeFLMenu float ' + this.popMenu2);
+      }, 500);
+      console.log('showFLMenu float ' + this.popMenu2);
     }
   }
   closeFLMenu() {
     if (this.isExpanded || this.isShowing) {
     } else {
       setTimeout(() => {
-        console.log('float closeFLMenu');
+        this.popMenu2 = false
+        console.log('closeFLMenu float ' + this.popMenu2);
       }, 1000);
     }
   }

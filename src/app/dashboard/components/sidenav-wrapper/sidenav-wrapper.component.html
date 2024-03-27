@@ -15,8 +15,8 @@
         <span class="menuSub">Dashboard</span>
       </div>
 
-      <mat-list-item (click)="toggleSubMenu()" (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">
-        <mat-icon mat-list-icon (click)="popMenu2 = !popMenu2">important_devices</mat-icon>
+      <mat-list-item >
+        <mat-icon mat-list-icon (click)="toggleSubMenu()" (mouseenter)="showFLMenu()" (mouseleave)="closeFLMenu()">important_devices</mat-icon>
         <span *ngIf="isExpanded || isShowing" class="menu-item">Info</span>
         <mat-icon class="menu-button" [ngClass]="{ 'rotated' : showSubmenu }"
           *ngIf="isExpanded || isShowing">chevron_right</mat-icon>
