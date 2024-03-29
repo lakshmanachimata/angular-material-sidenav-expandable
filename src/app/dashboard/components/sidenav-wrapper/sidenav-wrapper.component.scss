@@ -44,7 +44,7 @@ mat-sidenav-container {
   background: #fff;
   border: 1px solid #c0b4b4;
   padding: 12px 0 0 12px;
-  left: 50px;
+  left: 56px;
   border-radius: 10px;
   min-width: 175px;
   display: flex;
@@ -67,4 +67,16 @@ mat-sidenav-container {
 }
 .popOverMenu.infoMenu {
   top: 110px;
+}
+
+.popOverMenu::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 7px solid transparent;
+  border-right: 10px solid #c0b4b4;
+  border-bottom: 7px solid transparent;
+  position: absolute;
+  left: -10px;
+  top: 10px;
 }
